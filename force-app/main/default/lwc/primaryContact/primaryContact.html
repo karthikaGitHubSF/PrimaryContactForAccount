@@ -1,0 +1,21 @@
+<!--PrimaryContact.html-->
+<template>
+    <lightning-card>
+        <!--Datatable is used to display the related contacts-->
+    <lightning-datatable
+    key-field="id"
+    data={contactdata}
+    columns={columns}
+    max-row-selection="1"
+    onrowselection={handleRowSelection}>
+</lightning-datatable>
+    <br/>
+    <br/>
+    <!--Click to set chosen contact as Primary contact-->
+    <lightning-button label="Set as Primary Contact" onclick={handlePrimaryContact} variant="brand"></lightning-button>
+    <!-- Show error message if any -->
+    <template if:true={error}>
+        <div class="slds-text-color_error">Error: {error.message}</div>
+    </template>
+</lightning-card>
+</template>
